@@ -78,7 +78,7 @@ BEGIN
     INSERT INTO TempProcessoSQL
          VALUES(@nCdIDProcesso
                ,DB_NAME()
-               ,@cNmLogin
+               ,LTRIM(RTRIM(@cNmLogin))
                ,@dDtLogin
                ,@cNmComputador
                ,@dDtInicioExec
