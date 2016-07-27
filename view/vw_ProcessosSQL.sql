@@ -6,14 +6,14 @@ CREATE VIEW vw_ProcessosSQL
 
 AS
 
-SELECT sysprocblock.spid          as nCdIDProcesso
-      ,sysprocblock.loginame      as cNmLogin
-      ,sysprocblock.login_time    as dDtLogin
-      ,sysprocblock.hostname      as cHostName
-      ,sysprocblock.last_batch    as dDtInicioExec
-      ,UPPER(sysprocblock.status) as cStatusExec
-      ,open_tran                  as iTransacoes
-      ,sysprocblock.blocked       as nCdBlockID
+SELECT sysprocblock.spid                   as nCdIDProcesso
+      ,LTRIM(RTRIM(sysprocblock.loginame)) as cNmLogin
+      ,sysprocblock.login_time             as dDtLogin
+      ,sysprocblock.hostname               as cHostName
+      ,sysprocblock.last_batch             as dDtInicioExec
+      ,UPPER(sysprocblock.status)          as cStatusExec
+      ,open_tran                           as iTransacoes
+      ,sysprocblock.blocked                as nCdBlockID
       ,CASE WHEN EXISTS (SELECT 1 
 	                       FROM master.dbo.sysprocesses sysproc
 	                      WHERE sysproc.blocked = sysprocblock.spid)
