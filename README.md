@@ -30,7 +30,11 @@ Procedure para análise de consumo de memória por database.
 ```
 EXEC pr_ConsumoMemoriaDB
 ```
-
+#### pr_VerificaIndiceSemUso
+Procedure para análise de índices sem uso, analisar bem caso a caso pois as DMVs podem ajudar mas não são 100% confiáveis.
+```
+EXEC pr_VerificaIndiceSemUso 'TableName'
+```
 ## Views
 #### vw_ProcessosSQL
 Está view é utilizada para visualização de todos os processos em execução presentes no database ativo.
