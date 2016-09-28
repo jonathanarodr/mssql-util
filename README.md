@@ -24,7 +24,12 @@ Função utilizada para remoção de caracteres especiais de uma string
 SELECT dbo.fn_RemoveCaracterEspecial('Executando função para remoção de cadasteres especiais')
 ```
 
-## ~~Procedures~~
+## Procedures
+#### pr_ConsumoMemoriaDB
+Procedure para análise de consumo de memória por database.
+```
+EXEC pr_ConsumoMemoriaDB
+```
 
 ## Views
 #### vw_ProcessosSQL
