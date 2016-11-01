@@ -17,6 +17,7 @@ BEGIN
 				  ,TABLE_NAME
 			  FROM information_schema.tables 
 			 WHERE TABLE_TYPE = 'BASE TABLE'
+			 ORDER BY TABLE_NAME
 
 	OPEN curInReorganize
 
@@ -28,9 +29,9 @@ BEGIN
 	WHILE (@@FETCH_STATUS = 0)
 	BEGIN
 
-		PRINT 'Reorganizando índices do objeto ' + @cNmTable + '...'
+		PRINT 'Reorganizando Ã­ndices do objeto ' + @cNmTable + '...'
 
-		SET @cSQL = CONCAT('ALTER INDEX ALL ON ', DB_NAME(), '.', @cSchema, '.', @cNmTable, ' REORGANIZE')
+		SET @cSQL = 'ALTER INDEX ALL ON [' + DB_NAME() + '].' + @cSchema + '.' + @cNmTable + ' REORGANIZE'
 		EXEC(@cSQL)
 
 		FETCH NEXT 
